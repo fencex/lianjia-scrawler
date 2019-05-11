@@ -109,13 +109,22 @@ class Rentinfo(BaseModel):
     link = CharField()
     region = CharField()
     zone = CharField()
-    meters = CharField()
-    other = CharField()
-    subway = CharField()
-    decoration = CharField()
-    heating = CharField()
     price = CharField()
-    pricepre = CharField()
+
+    deployTime = CharField()
+    meters = CharField()
+    rooms = CharField()
+    faceto = CharField()
+    hasElevator = CharField()
+    floors = CharField()
+    floor = CharField()
+    parking = CharField()
+    tags = CharField()
+    desc = TextField()
+
+    transport = CharField()
+    #pricepre = CharField()
+
     updatedate = DateTimeField(default=datetime.datetime.now)
 
 

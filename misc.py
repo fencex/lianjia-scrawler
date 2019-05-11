@@ -52,7 +52,7 @@ def get_total_pages(url):
     soup = BeautifulSoup(source_code, 'lxml')
     total_pages = 0
     try:
-        page_info = soup.find('div', {'class': 'page-box house-lst-page-box'})
+        page_info = soup.find('div', {'class': 'content__pg'})
     except AttributeError as e:
         page_info = None
 
@@ -60,9 +60,8 @@ def get_total_pages(url):
     if page_info == None:
         return 50
     # '{"totalPage":5,"curPage":1}'
-    page_info_str = page_info.get('page-data').split(',')[0]
-    total_pages = int(page_info_str.split(':')[1])
-    return total_pages
+    total_pages=page_info.get('data-totalpage')
+    return int(total_pages)
 
 
 def get_sh_total_pages(url):
